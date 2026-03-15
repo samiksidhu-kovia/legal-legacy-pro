@@ -140,7 +140,7 @@ export default function AttorneysSection({ scrollTo }) {
           .attorneys-section-pad { padding: 64px 24px !important; }
           .attorneys-grid { flex-wrap: wrap !important; }
           .attorneys-grid > div { flex: 0 0 calc(50% - 12px) !important; min-width: 0 !important; }
-          .attorneys-grid > div:last-child { flex: 0 0 100% !important; }
+          .attorneys-grid > div:first-child { flex: 0 0 100% !important; }
           .attorney-bio { display: none !important; }
           .attorney-school { display: none !important; }
           .attorney-name { font-size: 16px !important; }
