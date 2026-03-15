@@ -81,7 +81,7 @@ function AttorneyCard({ attorney }) {
       {/* Content */}
       <div style={{ padding: "28px 24px", display: "flex", flexDirection: "column", flex: 1 }}>
         {/* Name */}
-        <h3 style={{
+        <h3 className="attorney-name" style={{
           fontFamily: "'Playfair Display', serif",
           fontWeight: 700,
           fontSize: "22px",
@@ -93,7 +93,7 @@ function AttorneyCard({ attorney }) {
         </h3>
 
         {/* Focus */}
-        <p style={{
+        <p className="attorney-focus" style={{
           fontFamily: "'Inter', sans-serif",
           fontSize: "12px",
           fontWeight: 600,
@@ -106,7 +106,7 @@ function AttorneyCard({ attorney }) {
         </p>
 
         {/* Bio */}
-        <p style={{
+        <p className="attorney-bio" style={{
           fontFamily: "'Inter', sans-serif",
           fontSize: "14px",
           color: "#B9C2D0",
@@ -119,7 +119,7 @@ function AttorneyCard({ attorney }) {
         </p>
 
         {/* School */}
-        <p style={{
+        <p className="attorney-school" style={{
           fontFamily: "'Inter', sans-serif",
           fontSize: "12px",
           fontStyle: "italic",
@@ -135,7 +135,19 @@ function AttorneyCard({ attorney }) {
 export default function AttorneysSection({ scrollTo }) {
   return (
     <section id="attorneys" style={{ background: "#1B1511" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "96px 48px" }}>
+      <style>{`
+        @media (max-width: 768px) {
+          .attorneys-section-pad { padding: 64px 24px !important; }
+          .attorneys-grid { flex-wrap: wrap !important; }
+          .attorneys-grid > div { flex: 0 0 calc(50% - 12px) !important; min-width: 0 !important; }
+          .attorneys-grid > div:last-child { flex: 0 0 100% !important; }
+          .attorney-bio { display: none !important; }
+          .attorney-school { display: none !important; }
+          .attorney-name { font-size: 16px !important; }
+          .attorney-focus { font-size: 10px !important; }
+        }
+      `}</style>
+      <div className="attorneys-section-pad" style={{ maxWidth: "1200px", margin: "0 auto", padding: "96px 48px" }}>
 
         {/* Header */}
         <div style={{ marginBottom: "56px" }}>
@@ -174,7 +186,7 @@ export default function AttorneysSection({ scrollTo }) {
         </div>
 
         {/* Three equal cards layout */}
-        <div style={{ display: "flex", gap: "24px", alignItems: "stretch" }}>
+        <div className="attorneys-grid" style={{ display: "flex", gap: "24px", alignItems: "stretch" }}>
           <div style={{ flex: 1 }}>
             <AttorneyCard attorney={attorneys.featured} large={false} />
           </div>

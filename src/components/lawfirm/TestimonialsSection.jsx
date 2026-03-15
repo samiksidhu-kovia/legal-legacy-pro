@@ -103,7 +103,7 @@ export default function TestimonialsSection() {
 
         {/* Centered testimonial card */}
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          <div style={{
+          <div className="testimonial-pad" style={{
             background: "rgba(35,28,23,0.85)",
             border: "1px solid rgba(201,165,122,0.12)",
             borderRadius: "12px",
@@ -124,7 +124,8 @@ export default function TestimonialsSection() {
             </div>
 
             {/* Quote text */}
-            <blockquote style={{
+            <style>{`@media (max-width: 768px) { .testimonial-quote { font-size: 16px !important; } .testimonial-pad { padding: 32px 24px !important; } }`}</style>
+            <blockquote className="testimonial-quote" style={{
               fontFamily: "'Playfair Display', serif",
               fontSize: "22px",
               color: "#ffffff",

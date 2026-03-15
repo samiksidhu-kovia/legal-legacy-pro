@@ -12,7 +12,15 @@ const practiceAreas = [
 export default function PracticeAreasSection({ scrollTo }) {
   return (
     <section id="practice-areas" style={{ background: "#1B1511" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "96px 48px" }}>
+      <style>{`
+        @media (max-width: 768px) {
+          .practice-layout { flex-direction: column !important; }
+          .practice-left { flex: 1 1 auto !important; width: 100% !important; }
+          .practice-right { flex: 1 1 auto !important; width: 100% !important; }
+          .practice-section-pad { padding: 64px 24px !important; }
+        }
+      `}</style>
+      <div className="practice-section-pad" style={{ maxWidth: "1200px", margin: "0 auto", padding: "96px 48px" }}>
 
         {/* Header */}
         <div style={{ marginBottom: "56px" }}>
@@ -41,10 +49,10 @@ export default function PracticeAreasSection({ scrollTo }) {
         </div>
 
         {/* Two-column layout */}
-        <div style={{ display: "flex", gap: "48px", alignItems: "flex-start" }}>
+        <div className="practice-layout" style={{ display: "flex", gap: "48px", alignItems: "flex-start" }}>
 
           {/* LEFT — Featured card */}
-          <div style={{ flex: "0 0 55%" }}>
+          <div className="practice-left" style={{ flex: "0 0 55%" }}>
             <div style={{
               background: "#231C17",
               borderRadius: "12px",
@@ -112,7 +120,7 @@ export default function PracticeAreasSection({ scrollTo }) {
           </div>
 
           {/* RIGHT — Vertical list */}
-          <div style={{ flex: "0 0 45%" }}>
+          <div className="practice-right" style={{ flex: "0 0 45%" }}>
             {practiceAreas.map((area, i) => (
               <div key={i}>
                 <div

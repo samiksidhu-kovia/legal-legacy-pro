@@ -39,11 +39,20 @@ const features = [
 export default function WhyUsSection() {
   return (
     <section id="why-us" style={{ background: "#14100D" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "96px 48px" }}>
-        <div style={{ display: "flex", gap: "80px", alignItems: "flex-start" }}>
+      <style>{`
+        @media (max-width: 768px) {
+          .whyus-layout { flex-direction: column !important; gap: 48px !important; }
+          .whyus-left { flex: 1 1 auto !important; width: 100% !important; }
+          .whyus-right { flex: 1 1 auto !important; width: 100% !important; }
+          .whyus-right > div { margin-left: 0 !important; }
+          .whyus-section-pad { padding: 64px 24px !important; }
+        }
+      `}</style>
+      <div className="whyus-section-pad" style={{ maxWidth: "1200px", margin: "0 auto", padding: "96px 48px" }}>
+        <div className="whyus-layout" style={{ display: "flex", gap: "80px", alignItems: "flex-start" }}>
 
           {/* LEFT COLUMN — 40% */}
-          <div style={{ flex: "0 0 40%" }}>
+          <div className="whyus-left" style={{ flex: "0 0 40%" }}>
             {/* Label */}
             <div style={{
               fontFamily: "'Inter', sans-serif",
@@ -109,7 +118,7 @@ export default function WhyUsSection() {
           </div>
 
           {/* RIGHT COLUMN — 60% */}
-          <div style={{ flex: "0 0 60%", display: "flex", flexDirection: "column", gap: "16px" }}>
+          <div className="whyus-right" style={{ flex: "0 0 60%", display: "flex", flexDirection: "column", gap: "16px" }}>
             {features.map(({ icon: Icon, title, desc }, i) => {
               const isShifted = i % 2 === 1;
               return (
